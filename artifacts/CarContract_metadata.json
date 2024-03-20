@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Cars.sol": "CarContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Cars.sol": {
+			"keccak256": "0xfb5eacdfb014d0ffa39576479f3bc2c4386c669427935c164111089649408792",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5311095facb71e35d1dbe73c6507e1893518910c68de0ffd1c7afa45cd40ccdb",
+				"dweb:/ipfs/QmQQugbgBk1AmesYwg1XR6wMYxGY4ZY9rkrbacjBqC8q3n"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,28 +1,71 @@
-REMIX DEFAULT WORKSPACE
+# Hello World
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+This Solidity program is a simple "Token Manager" program that demonstrates the basic syntax and functionality of the Solidity programming language. The purpose of this program is to serve as a starting point for those who are new to Solidity and want to get a feel for how it works.
 
-This workspace contains 3 directories:
+## Description
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract of "Token" is in file named "MyTokens.sol", where there are three public variable namely "tokenName", "tokenAbbrv" which are string and "tokenSupply" is uint, also there exists mapping from every address to the token supply of that specific address.
+It has two public functions namely "mint" which takes uint _value and address _address as a function params which adds the _value in tokenSupply also in the mapping of that address, 
+also there is function named "burn" which deduct the _value from tokenSupply as well as from the mapping of that address if the total tokens is equal or more than the _value;
 
-SCRIPTS
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+## Getting Started
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+### Executing program
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., MyToken.sol). Copy and paste the following code into the file:
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+```javascript
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
+
+
+contract MyToken {
+
+    // public variables here
+    string public tokenName = "SHIVA";
+    string public tokenAbbrv = "SHI";
+    uint public  tokenSupply = 0;
+
+    // mapping variable here
+
+    mapping (address => uint) public  balances;
+
+    // mint function
+
+    function mint(address _address, uint _value) public {
+        tokenSupply += _value;
+        balances[_address] += _value;
+    }
+
+    function burn(address _address, uint _value) public {
+        if(balances[_address] >= _value){
+        tokenSupply -= _value;
+        balances[_address] -= _value;
+        }
+    }
+
+
+
+    // burn function
+
+}
+
+
+```
+
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" (or another compatible version), and then click on the "Compile MyToken.sol" button.
+
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "MyToken" contract from the dropdown menu, and then click on the "Deploy" button.
+
+Once the contract is deployed, you can interact with it by passing the params in mint and burn functions and checking the values if it updates or not..
+
+## Authors
+
+Pulkit Dubey 
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
